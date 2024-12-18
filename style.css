@@ -1,0 +1,144 @@
+body, ul, p {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 1.2rem;
+	font-family: arial;
+} 
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+h1 {
+	margin: 50px 50px 10px;
+	text-align: center;
+}
+
+h1 + p {
+	color: #666;
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+section {
+	padding-bottom: 50px;
+}
+
+img {
+	width: 100%;
+	display: block;
+}
+
+
+
+
+
+
+/*  CSS flexbox  */
+
+header {
+	background: #1d1e20;
+	display: flex;
+	flex-wrap: wrap; /* quebrar linha automaticamente qdo a lagura for pequena */
+	justify-content: space-between; /* espcao entre... */
+	align-items: center; /* centralizar verticalmente  */
+	padding: 20px;
+}
+
+nav ul {
+	display: flex;
+}
+
+nav li {
+	margin-left: 10px;
+}
+
+nav li a {
+	padding: 10px;
+}
+
+
+/* */
+.flex {
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.flex > div {
+	flex: 1 1 200px; 
+	/* 
+		1ro '1' - permitir expansao
+		2ro '1' - permitir compressao
+		3ro '200px' - max lagura de cada item
+	*/
+	margin: 10px;
+}
+
+
+
+
+
+
+
+/*   CSS grid    */
+
+.grid1 {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr; /* fr=unidade fracinaria; 1=100% da unidade */
+	/* 
+		a linha acima pode ser escrito:  
+		grid-template-columns: repeat(3, 1fr)
+	*/
+
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 10px;
+	grid-gap: 20px; /*  margin entre filhos  */
+}
+
+.grid1 > div:nth-child(n + 4) {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 10px;
+	align-items: center; /* centralizar verticalmente  */
+}
+
+.grid1 > div.anuncio {
+	grid-column: 1; /* ocupar a coluna 1 */
+	grid-row: 2 / 6; /* fazer com o elemento ocupe de 2 a sexta linha  */
+	display: block;
+}
+
+
+
+
+
+@media(max-width: 600px) {
+	.grid1 {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.grid1 > div.anuncio {
+		grid-row: 2 / 3;
+		display: block;
+	}
+}
+
+
+
+
+
+@media(max-width: 380px) {
+	.grid1 {
+		grid-template-columns: 1fr;
+	}
+
+	.grid1 > div.anuncio {
+		grid-row: 2 / 2;
+		display: block;
+	}
+}
