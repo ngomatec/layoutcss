@@ -6,6 +6,11 @@ body, ul, p {
 	font-family: arial;
 } 
 
+body {
+	margin-bottom: 50px;
+	background-color: #999;
+}
+
 a {
 	text-decoration: none;
 	color: white;
@@ -20,10 +25,6 @@ h1 + p {
 	color: #666;
 	text-align: center;
 	margin-bottom: 50px;
-}
-
-section {
-	padding-bottom: 50px;
 }
 
 img {
@@ -125,6 +126,8 @@ nav li a {
 	.grid1 > div.anuncio {
 		grid-row: 2 / 3;
 		display: block;
+
+		order: 1;
 	}
 }
 
@@ -141,4 +144,81 @@ nav li a {
 		grid-row: 2 / 2;
 		display: block;
 	}
+}
+
+
+
+
+/*  CSS grid 2    */
+
+.grid2 {
+	display: grid;
+	grid-template-columns: 1fr 200px;
+	grid-gap: 20px;
+	padding: 10px;
+
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.grid2 .sidebar > div {
+	margin-bottom: 20px;
+}
+
+
+@media(max-width: 600px) {
+	.grid2 {
+		grid-template-columns: 1fr;
+	}
+
+	.grid2 .sidebar {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: 20px;
+		align-items: center;
+	}
+}
+
+
+
+
+/*  CSS grid 3    */
+
+.grid3 {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 20px;
+	padding: 10px;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.grid3 > div:first-child {
+	grid-row: 1 / 3;
+	overflow: hidden;
+}
+
+.grid3 > div:first-child img {
+	width: auto;
+}
+
+/*  sobre por conteudo  */
+
+.grid3 > div {
+	display: grid;
+}
+
+.grid3 > div img {
+	grid-column: 1;
+	grid-row: 1 / 3;
+	align-self: end;
+}
+
+.grid3 > div p {
+	grid-column: 1;
+	grid-row: 2 / 3;
+	background-color: rgba(0,0,0,.6);
+	padding: 10px;
+	color: white;
+	align-self: end;
 }
